@@ -119,7 +119,6 @@ public class EspetaculosController {
 			validator.add(new SimpleMessage("", "Não existem ingressos disponíveis"));
 		}
 
-		// em caso de erro, redireciona para a lista de sessao
 		validator.onErrorRedirectTo(this).sessao(sessao.getId());
 
 		BigDecimal precoTotal = CalculadoraDePrecos.calcula(sessao, quantidade);
