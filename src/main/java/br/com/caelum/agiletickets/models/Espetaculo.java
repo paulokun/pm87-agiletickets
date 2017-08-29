@@ -99,7 +99,7 @@ public class Espetaculo {
      * 
      * Repare que a data da primeira sessao é sempre a data inicial.
      */
-	public List<Sessao> criaSessoes(LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade) {
+	public List<Sessao> criaSessoes(LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade) throws IllegalArgumentException {
 		List<Sessao> lista = new ArrayList<Sessao>();
 		
 		int intervalo = 0;
@@ -109,6 +109,10 @@ public class Espetaculo {
 		} else {
 			intervalo = Weeks.weeksBetween(inicio, fim).getWeeks();
 			multiplicador = 7;
+		}
+		
+		if (intervalo < 0) {
+			throw new IllegalArgumentException("Periodo invalido!");
 		}
 		
 		for (int i = 0; i <= intervalo; i++) {

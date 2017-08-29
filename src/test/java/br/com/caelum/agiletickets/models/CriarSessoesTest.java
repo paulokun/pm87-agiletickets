@@ -38,7 +38,7 @@ public class CriarSessoesTest {
 		assertEquals(fim.toDateTime(hora), lista.get(2).getInicio());
 	}
 	
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void inicioMaiorQueOFim() {
 		Espetaculo e = new Espetaculo();
 		
@@ -47,7 +47,6 @@ public class CriarSessoesTest {
 		LocalTime hora = new LocalTime();
 		
 		List<Sessao> lista = e.criaSessoes(inicio, fim, hora, Periodicidade.DIARIA);
-		assertEquals(0, lista.size());
 	}
 	
 	@Test
@@ -75,7 +74,7 @@ public class CriarSessoesTest {
 		assertEquals(fim.toDateTime(hora), lista.get(1).getInicio());
 	}
 	
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void semanalInicioMaiorQueOFim() {
 		Espetaculo e = new Espetaculo();
 		
@@ -84,6 +83,5 @@ public class CriarSessoesTest {
 		LocalTime hora = new LocalTime();
 		
 		List<Sessao> lista = e.criaSessoes(inicio, fim, hora, Periodicidade.SEMANAL);
-		assertEquals(0, lista.size());
 	}
 }
