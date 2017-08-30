@@ -75,6 +75,7 @@ public class CriarSessoesTest {
 	}
 	
 	// @Test(expected = IllegalArgumentException.class)
+	@Test
 	public void semanalInicioMaiorQueOFim() {
 		Espetaculo e = new Espetaculo();
 		
